@@ -1,1 +1,3 @@
 node_modules
+migration_lock.toml
+.env
