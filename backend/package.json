@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "Plataforma com CRUD completo para o gerenciamento de produtos ",
   "author": "Sofia Lessa",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^7.10.0",
+    "@prisma/client": "^6.6.0",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mysql2": "^3.24.3",
-    "prisma": "^8.0.0-rc.12"
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.24.3"
+  },
+  "devDependencies": {
+    "prisma": "^6.6.0"
   }
 }
