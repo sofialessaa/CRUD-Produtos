@@ -104,10 +104,11 @@ export default function ProductForm() {
         />
 
         <div className="flex flex-col">
-          <label className="mb-1 text-sm font-medium text-gray-700">
+          <label htmlFor="description" className="mb-1 text-sm font-medium text-gray-700">
             Descrição
           </label>
           <textarea
+            id="description"
             value={product.description}
             onChange={handleChange("description")}
             rows={3}

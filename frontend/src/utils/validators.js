@@ -35,31 +35,3 @@ export function validateStock(value) {
   if (num < 0) return "O estoque não pode ser negativo";
   return "";
 }
- 
-//valida se o produto é válido
-export function validateProduct({ name, price, category, stock }) {
-  const errors = { name: "", price: "", category: "", stock: "" };
- 
-  if (!name || !name.trim()) errors.name = "O nome é obrigatório";
- 
-  if (price === "" || price === null || price === undefined) {
-    errors.price = "O preço é obrigatório";
-  } else if (Number(price) <= 0) {
-    errors.price = "O preço deve ser maior que zero";
-  }
- 
-  if (!category || !category.trim()) errors.category = "A categoria é obrigatória";
- 
-  if (stock === "" || stock === null || stock === undefined) {
-    errors.stock = "O estoque é obrigatório";
-  } else if (Number(stock) < 0 || !Number.isInteger(Number(stock))) {
-    errors.stock = "O estoque deve ser um número inteiro maior ou igual a zero";
-  }
- 
-  return errors;
-}
- 
-// retorna true se todos os campos do objeto de erros estiverem vazios
-export function isValid(errors) {
-  return Object.values(errors).every((msg) => !msg);
-}

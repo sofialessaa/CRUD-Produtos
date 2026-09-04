@@ -9,7 +9,7 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path="/" element={<Login />} />
