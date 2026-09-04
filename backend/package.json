@@ -6,7 +6,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --passWithNoTests",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -19,6 +19,9 @@
     "mysql2": "^3.24.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^8.0.2",
+    "babel-jest": "^30.5.1",
+    "jest": "^30.5.1",
     "prisma": "^6.6.0"
   }
 }
