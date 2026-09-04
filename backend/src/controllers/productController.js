@@ -10,8 +10,11 @@ export const createProduct = async (req, res) => {
     const product = await prisma.product.create({data: {name, description, price, category, stock, userId}});
     return res.status(201).json(product);
   } catch (error) {
-    console.error('Erro ao criar produto:', error);
-    return res.status(500).json({error: 'Erro ao criar produto.'});
+    // validacao caso o produto ja exista
+    if (error.code === 'P2002') {
+      return res.status(409).json({ error: 'Já existe um produto cadastrado com este nome.' });
+    }
+    return res.status(500).json({ error: 'Erro interno ao criar produto.' });
   }
 };
 
