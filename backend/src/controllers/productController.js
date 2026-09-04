@@ -27,6 +27,20 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+// GET - rota para buscar um produto específico
+export const getProductById = async (req, res) => {
+  const {id} = req.params;
+  const userId = req.user.id;
+
+  try {
+    const product = await prisma.product.findUnique({ where: { id: parseInt(id), userId: userId } });
+    return res.status(200).json(product);
+  } catch (error) {
+    console.error('Erro ao buscar produto:', error);
+    return res.status(500).json({ error: 'Erro ao buscar produto.' });
+  }
+};
+
 // PUT - rota para atualizar um produto 
 export const updateProduct = async (req, res) => {
   const {id} = req.params;
